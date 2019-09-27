@@ -5,10 +5,12 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
+  Alert,
+  View,
 } from 'react-native';
 import {Body, Card, CardItem, Right, Icon} from 'native-base';
 import BotaoFavoritar from './BotaoFavoritar';
-import {favoritar, desfavoritar} from '../actions';
+import {favoritar, desfavoritar, excluirAnimal} from '../actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -19,6 +21,21 @@ class Animal extends Component {
     return !!animal.favoritoUsuarios.find(usuario => usuario === usuarioLogado);
   }
 
+  excluir(animal) {
+    Alert.alert(
+      'Ateção!',
+      'Confirme a exclusão do animal ' + animal.nome + '?',
+      [
+        {text: 'OK', onPress: () => this.props.excluirAnimal(animal)},
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+      ],
+      {cancelable: true},
+    );
+  }
+
   render() {
     const {animal, navigation} = this.props;
 
@@ -27,10 +44,15 @@ class Animal extends Component {
         <CardItem header bordered>
           <Text style={style.nomeAnimal}>{animal.nome}</Text>
           <Right>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('AlterarAnimal', {animal})}>
-              <Icon name="create" style={style.icone} />
-            </TouchableOpacity>
+            <View style={style.actionIconContainer}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('AlterarAnimal', {animal})}>
+                <Icon name="create" style={style.icone} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.excluir(animal)}>
+                <Icon name="trash" style={style.icone} />
+              </TouchableOpacity>
+            </View>
           </Right>
         </CardItem>
 
@@ -77,7 +99,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({favoritar, desfavoritar}, dispatch);
+  bindActionCreators({favoritar, desfavoritar, excluirAnimal}, dispatch);
 
 export default connect(
   mapStateToProps,
@@ -93,6 +115,8 @@ const style = StyleSheet.create({
   },
 
   icone: {fontSize: 30, color: 'green'},
+
+  actionIconContainer: {flexDirection: 'row'},
 
   titleText: {
     fontSize: 24,

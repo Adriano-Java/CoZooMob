@@ -13,7 +13,7 @@ export function detalharAnimaisAPI(id) {
 }
 
 export function excluirAnimaisAPI(id) {
-  return api.get(`/animais/${id}`);
+  return api.delete(`/animais/${id}`);
 }
 
 export function incluirAnimaisAPI(animal) {

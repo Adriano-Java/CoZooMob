@@ -6,12 +6,14 @@ import {
   SET_LOADING,
   INCLUIR_ANIMAL,
   ALTERAR_ANIMAL,
+  EXCLUIR_ANIMAL,
 } from './constants';
 import {
   carregarAnimaisAPI,
   loginAPI,
   incluirAnimaisAPI,
   alterarAnimalAPI,
+  excluirAnimaisAPI,
 } from './api';
 
 function loadingWrapper(asyncFunc) {
@@ -88,6 +90,17 @@ export function alterarAnimal(animal) {
       dispatch({
         type: ALTERAR_ANIMAL,
         data: res.data,
+      });
+    }),
+  );
+}
+
+export function excluirAnimal(animal) {
+  return loadingWrapper(dispatch =>
+    excluirAnimaisAPI(animal._id).then(res => {
+      dispatch({
+        type: EXCLUIR_ANIMAL,
+        data: animal,
       });
     }),
   );
