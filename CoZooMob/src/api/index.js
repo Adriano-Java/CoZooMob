@@ -21,7 +21,7 @@ export function incluirAnimaisAPI(animal) {
 }
 
 export function atualizarAnimaisAPI(animal) {
-  return api.get(`/animais/${animal._id}`, animal);
+  return api.post(`/animais/${animal._id}`, animal);
 }
 
 export function loginAPI(usuario, senha) {

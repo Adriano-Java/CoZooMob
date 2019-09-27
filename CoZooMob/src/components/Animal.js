@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
-import {Image, Text, Dimensions, StyleSheet} from 'react-native';
-import {Body, Card, CardItem} from 'native-base';
+import {
+  Image,
+  Text,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import {Body, Card, CardItem, Right, Icon} from 'native-base';
 import BotaoFavoritar from './BotaoFavoritar';
 import {favoritar, desfavoritar} from '../actions';
 import {bindActionCreators} from 'redux';
@@ -14,12 +20,18 @@ class Animal extends Component {
   }
 
   render() {
-    const {animal} = this.props;
+    const {animal, navigation} = this.props;
 
     return (
       <Card>
         <CardItem header bordered>
           <Text style={style.nomeAnimal}>{animal.nome}</Text>
+          <Right>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('AlterarAnimal', {animal})}>
+              <Icon name="create" style={style.icone} />
+            </TouchableOpacity>
+          </Right>
         </CardItem>
 
         <CardItem bordered>
@@ -79,6 +91,8 @@ const style = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'black',
   },
+
+  icone: {fontSize: 30, color: 'green'},
 
   titleText: {
     fontSize: 24,
