@@ -9,6 +9,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import ListaAnimais from './components/ListaAnimais';
 import Carregando from './components/Carregando';
 import IncluirAnimal from './components/IncluirAnimal';
+import AlterarAnimal from './components/AlterarAnimal';
 
 const store = configureStore();
 
@@ -17,6 +18,7 @@ const AppNavigator = createStackNavigator(
     Login,
     ListaAnimais,
     IncluirAnimal,
+    AlterarAnimal,
   },
   {
     initialRouteName: 'Login',

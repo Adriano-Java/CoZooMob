@@ -29,13 +29,13 @@ class AlterarAnimal extends Component {
     const animal = navigation.getParam('animal');
     return <Text>{animal.nome}</Text>;
   }
-
-  const mapStateToProps = () => ({});
-
-  const mapDispatchToProps = {};
-
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(AlterarAnimal);
 }
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AlterarAnimal);
