@@ -30,3 +30,7 @@ export function loginAPI(usuario, senha) {
     return res;
   });
 }
+
+export function alterarAnimalAPI(animal) {
+  return api.put(`/animais/${animal._id}`, animal);
+}

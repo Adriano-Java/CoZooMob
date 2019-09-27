@@ -5,8 +5,14 @@ import {
   CARREGAR_ANIMAIS,
   SET_LOADING,
   INCLUIR_ANIMAL,
+  ALTERAR_ANIMAL,
 } from './constants';
-import {carregarAnimaisAPI, loginAPI, incluirAnimaisAPI} from './api';
+import {
+  carregarAnimaisAPI,
+  loginAPI,
+  incluirAnimaisAPI,
+  alterarAnimalAPI,
+} from './api';
 
 function loadingWrapper(asyncFunc) {
   return dispatch => {
@@ -70,6 +76,17 @@ export function incluirAnimal(animal) {
     incluirAnimaisAPI(animal).then(res => {
       dispatch({
         type: INCLUIR_ANIMAL,
+        data: res.data,
+      });
+    }),
+  );
+}
+
+export function alterarAnimal(animal) {
+  return loadingWrapper(dispatch =>
+    alterarAnimalAPI(animal).then(res => {
+      dispatch({
+        type: ALTERAR_ANIMAL,
         data: res.data,
       });
     }),

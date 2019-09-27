@@ -3,6 +3,7 @@ import {
   DESFAVORITAR,
   CARREGAR_ANIMAIS,
   INCLUIR_ANIMAL,
+  ALTERAR_ANIMAL,
 } from '../constants';
 
 const initialState = [];
@@ -18,6 +19,9 @@ export default function animaisReducer(state = initialState, action) {
 
     case INCLUIR_ANIMAL:
       return [...state, action.data];
+
+    case ALTERAR_ANIMAL:
+      return atualizarAnimal(state, action.data);
 
     case FAVORITAR: {
       const {animal, usuario} = action.data;

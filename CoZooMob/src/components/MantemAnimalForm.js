@@ -40,6 +40,17 @@ class MantemAnimalForm extends Component {
     );
   };
 
+  componentDidMount() {
+    let {animal, initialize} = this.props;
+    animal = animal || {};
+    initialize({
+      nome: animal.nome,
+      urlImagem: animal.urlImagem,
+      _id: animal._id,
+      favoritoUsuarios: animal.favoritoUsuarios || [],
+    });
+  }
+
   render() {
     const {invalid, handleSubmit} = this.props;
 
