@@ -1,0 +1,40 @@
+{
+  "animais": [
+    {
+      "_id": "1",
+      "nome": "Lion Man, uma dádiva dos ninjas!",
+      "uriImagem": "http://1.bp.blogspot.com/-nEl2bbAR6f4/UqJbU7QWh_I/AAAAAAAACvk/EveLgJo1YGU/s1600/Lion_Man.jpg",
+
+      "favoritoUsuarios": []
+    },
+    {
+      "_id": "2",
+      "nome": "Melman, a girafa!",
+      "uriImagem": "http://madagascar.br.dreamworks.com/images/uploads/characters/melman_action.png",
+
+      "favoritoUsuarios": ["eduardo"]
+    },
+    {
+      "_id": "3",
+      "nome": "O gato de Botas!",
+      "uriImagem": "https://static1.purebreak.com.br/articles/1/77/91/@/41149-nem-o-shrek-resiste-a-esse-olhar-pidao-950x0-1.jpg",
+
+      "favoritoUsuarios": []
+    },
+    {
+      "_id": "4",
+      "nome": "Pica-Pau!",
+      "uriImagem": "https://t.tudocdn.net/366480?w=646&h=284",
+
+      "favoritoUsuarios": ["biridin", "rusbé"]
+    },
+    {
+      "_id": "5",
+      "nome": "Rusbé Jackson!",
+      "uriImagem": "https://scontent-frt3-1.cdninstagram.com/vp/3b2cdb1d95aa3358e669e1a849db8af3/5E02D115/t51.2885-15/e35/s320x320/55957875_327781747874356_7967708894558899172_n.jpg?_nc_ht=scontent-frt3-1.cdninstagram.com&_nc_cat=104",
+
+      "favoritoUsuarios": ["thiago"]
+    }
+  ],
+  "usuarioLogado": "josue"
+}
